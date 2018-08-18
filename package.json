@@ -1,0 +1,114 @@
+{
+  "name": "RNSK",
+  "version": "1.1.0",
+  "description": "🚀 Get started with React Native and Redux with no effort!",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CharlesMangwa/react-native-simple-kit"
+  },
+  "author": "Charles MANGWA <charles.mangwa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CharlesMangwa/react-native-simple-kit/issues"
+  },
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "cache-clean": "rm -rf $TMPDIR/react-* && watchman watch-del-all && yarn autoclean --force",
+    "lint": "eslint . --fix",
+    "flow": "flow --show-all-errors",
+    "jest": "jest --verbose",
+    "test": "jest --verbose --coverage && cat ./__tests__/__coverage__/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "prettier": "prettier --config .prettierrc --parser flow --write \"*.js\"",
+    "precommit": "lint-staged && yarn lint && git add . && yarn flow && yarn jest",
+    "postcommit": "git update-index --again"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx}": [
+      "yarn prettier",
+      "git add"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "flow",
+      "react-native"
+    ],
+    "env": {
+      "production": {
+        "plugins": [
+          "minify-dead-code-elimination",
+          "transform-inline-consecutive-adds",
+          "transform-remove-console",
+          "transform-react-remove-prop-types",
+          "transform-flow-strip-types"
+        ]
+      }
+    }
+  },
+  "engines": {
+    "node": ">=4",
+    "npm": ">=2 <4"
+  },
+  "rnpm": {
+    "assets": [
+      "src/shared/assets/"
+    ]
+  },
+  "jest": {
+    "coverageDirectory": "./__tests__/__coverage__",
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov"
+    ],
+    "moduleNameMapper": {
+      "^image![a-zA-Z0-9$_-]+$": "GlobalImageStub",
+      "^[@./a-zA-Z0-9$_-]+\\.(png|gif)$": "RelativeImageStub"
+    },
+    "preset": "react-native",
+    "rootDir": ".",
+    "testRegex": "./__tests__/.*.test.js$",
+    "transformIgnorePatterns": [
+      "node_modules/(?!react-native|react-router-native)"
+    ]
+  },
+  "dependencies": {
+    "@expo/react-native-action-sheet": "^1.0.2",
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-native-modal": "6.1.0",
+    "react-native-svg": "^6.0.0",
+    "react-navigation": "^2.5.2",
+    "react-redux": "^5.0.6",
+    "recompose": "^0.27.1",
+    "redux": "^4.0.0",
+    "redux-persist": "^5.10.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "babel-plugin-minify-dead-code-elimination": "^0.4.3",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
+    "babel-plugin-transform-inline-consecutive-adds": "^0.4.3",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.10",
+    "babel-plugin-transform-remove-console": "^6.8.5",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react-native": "^4.0.0",
+    "coveralls": "^3.0.0",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.6.1",
+    "eslint-plugin-react": "^7.4.0",
+    "flow-bin": "0.75.0",
+    "husky": "^0.14.3",
+    "jest": "^23.1.0",
+    "lint-staged": "^7.2.0",
+    "prettier": "^1.13.5",
+    "react-test-renderer": "16.3.1"
+  }
+}

@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Generic component: <TextInput /> renders correctly 1`] = `
+<TextInput
+  allowFontScaling={true}
+  autoCapitalize="none"
+  autoFocus={false}
+  blurOnSubmit={true}
+  clearButtonMode="always"
+  dataDetectorTypes="all"
+  keyboardType="default"
+  multiline={false}
+  placeholder="I'm rendered \\\\o/"
+  placeholderTextColor="#33333380"
+  returnKeyType="done"
+  secureTextEntry={false}
+  selectionColor="#E33258"
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "alignSelf": "center",
+        "backgroundColor": "#fefefe",
+        "color": "#333333",
+        "fontFamily": "Avenir",
+        "fontSize": 25.728326341809918,
+        "fontWeight": "400",
+        "height": 73.50950383374261,
+        "justifyContent": "flex-start",
+        "paddingLeft": 27.56606393765348,
+        "width": "93%",
+      },
+      undefined,
+    ]
+  }
+  underlineColorAndroid="transparent"
+/>
+`;
